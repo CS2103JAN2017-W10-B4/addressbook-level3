@@ -3,6 +3,7 @@ package seedu.addressbook.data.person;
 import seedu.addressbook.data.tag.UniqueTagList;
 
 import java.util.Objects;
+import java.util.Date;
 
 /**
  * Represents a Person in the address book.
@@ -14,6 +15,7 @@ public class Person implements ReadOnlyPerson {
     private Phone phone;
     private Email email;
     private Address address;
+    private Date dateAdded;
 
     private final UniqueTagList tags;
     /**
@@ -24,6 +26,7 @@ public class Person implements ReadOnlyPerson {
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.dateAdded = new Date();
         this.tags = new UniqueTagList(tags); // protect internal tags from changes in the arg list
     }
 
@@ -32,6 +35,10 @@ public class Person implements ReadOnlyPerson {
      */
     public Person(ReadOnlyPerson source) {
         this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(), source.getTags());
+    }
+    
+    public Date getDateAdded(){
+    	return dateAdded;
     }
 
     @Override
