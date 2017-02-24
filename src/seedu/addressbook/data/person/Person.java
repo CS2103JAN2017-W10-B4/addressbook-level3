@@ -31,12 +31,25 @@ public class Person implements ReadOnlyPerson {
     }
 
     /**
+     * Constructor for given dateAdded
+     */
+    public Person(Name name, Phone phone, Email email, Address address, UniqueTagList tags, Date date) {
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.dateAdded = date;
+        this.tags = new UniqueTagList(tags); 
+    }
+    
+    /**
      * Copy constructor.
      */
     public Person(ReadOnlyPerson source) {
-        this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(), source.getTags());
+        this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(), source.getTags(), source.getDateAdded());
     }
     
+    @Override
     public Date getDateAdded(){
     	return dateAdded;
     }

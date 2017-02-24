@@ -1,5 +1,7 @@
 package seedu.addressbook.data.person;
 
+import java.util.Date;
+
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 
@@ -13,6 +15,7 @@ public interface ReadOnlyPerson {
     Phone getPhone();
     Email getEmail();
     Address getAddress();
+    Date getDateAdded();
 
     /**
      * The returned TagList is a deep copy of the internal TagList,
